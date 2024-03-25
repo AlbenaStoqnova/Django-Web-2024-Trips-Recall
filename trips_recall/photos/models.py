@@ -1,6 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from trips_recall.trips.models import Trip
+
+
+UserModel = get_user_model()
 
 
 class TripPhoto(models.Model):
@@ -31,3 +35,5 @@ class TripPhoto(models.Model):
     modified_at = models.DateTimeField(
         auto_now=True,
     )
+    user = models.ForeignKey(UserModel,
+                             on_delete=models.RESTRICT)

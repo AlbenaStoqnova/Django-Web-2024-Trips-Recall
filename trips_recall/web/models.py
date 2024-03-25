@@ -1,6 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from trips_recall.photos.models import TripPhoto
+
+
+UserModel = get_user_model()
 
 
 class PhotoComment(models.Model):
@@ -16,6 +20,10 @@ class PhotoComment(models.Model):
     )
     pet_photo = models.ForeignKey(TripPhoto, on_delete=models.RESTRICT,)
 
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT,)
+
 
 class PhotoLike(models.Model):
     pet_photo = models.ForeignKey(TripPhoto, on_delete=models.RESTRICT,)
+
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, )

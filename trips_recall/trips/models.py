@@ -1,5 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import MinLengthValidator
+
+
+UserModel = get_user_model()
 
 
 class Trip(models.Model):
@@ -37,3 +41,5 @@ class Trip(models.Model):
         null=True,
         blank=True,
     )
+    user = models.ForeignKey(UserModel,
+                             on_delete=models.RESTRICT)

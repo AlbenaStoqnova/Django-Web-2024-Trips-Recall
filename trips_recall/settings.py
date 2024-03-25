@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -142,3 +144,9 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.TripsRecallUser'
+
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+
+LOGIN_URL = reverse_lazy('signin user')
+
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
