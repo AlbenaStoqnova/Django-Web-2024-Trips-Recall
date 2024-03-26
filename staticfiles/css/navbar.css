@@ -1,0 +1,8 @@
+body {
+    background-color: darkseagreen; /* Цвят на фона */
+
+}
+.navbar {
+    background-color: lightseagreen; /* Цвят на лентата за навигация */
+    color: white; /* Цвят на текста в лентата за навигация */
+}
