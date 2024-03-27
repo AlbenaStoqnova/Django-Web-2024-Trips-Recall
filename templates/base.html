@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Project</title>
+    <title>Trips Recall</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -13,22 +13,34 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Trips Recall</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Log in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Add Trip</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Add Photo</a>
-                    </li>
-                </ul>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Log Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Create Trip</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Add Photo</a>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                    </ul>
+                </div>
+            {% endif %}
+
         </nav>
     </header>
     <main>
