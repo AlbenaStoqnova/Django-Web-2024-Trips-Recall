@@ -5,8 +5,8 @@ from trips_recall.accounts.views import \
     ProfileDetailsView, ProfileUpdateView, ProfileDeleteView
 
 urlpatterns = (
-    path("signup/", SignUpUserView.as_view(), name="signup user"),
     path("signin/", SignInUserView.as_view(), name="signin user"),
+    path("signup/", SignUpUserView.as_view(), name="signup user"),
     path("signout/", signout_user, name="signout user"),
 
     path(

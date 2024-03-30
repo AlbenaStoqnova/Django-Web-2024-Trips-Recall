@@ -13,30 +13,35 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Trips Recall</a>
-            {% if user.is_authenticated %}
+            {% if no_nav %}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/">Log Out</a>
+                            <a class="nav-link" href="{% url 'signout user' %}">Log Out</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/">Create Trip</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/">Add Photo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">My Trips</a>
+                        </li>
                     </ul>
                 </div>
             {% else %}
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Log In</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signin user' %}">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Register</a>
+                            <a class="nav-link" href="{% url 'signup user' %}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="{% url 'index' %}">Home</a>
+                        </li>
                     </ul>
                 </div>
             {% endif %}

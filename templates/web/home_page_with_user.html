@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+    {% if trips %}
+        <h2>My Trips</h2>
+    {% else %}
+        <h2>No Trips yet!</h2>
+    {% endif %}
+
+    {% for trip in trips %}
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="{{ trip.trip_photo }}" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">{{ trip.title }}</h4>
+                <p class="card-text">{{ trip.location }}</p>
+                <p class="card-text">{{ trip.description }}</p>
+{#                <div class="buttons">#}
+{#                    <a href="{% url 'car_edit' pk=1 %}" class="edit-button">Edit</a>#}
+{#                    <a href="{% url 'car_delete' pk=1 %}" class="delete-button">Delete</a>#}
+{#                </div>#}
+                <a href="#" class="btn btn-primary">See Photo</a>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

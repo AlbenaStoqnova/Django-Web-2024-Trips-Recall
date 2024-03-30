@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+    <div>
+        <div>
+            <h1>TripsRecall</h1>
+
+            <form action="{% url 'signin user' %}?next={{ next }}" method="post">
+                <p>
+                    <input type="email" name="email" placeholder="{{ form.username.label }}" required>
+                </p>
+                <p>
+                    <input type="password" name="password" placeholder="{{ form.password.label }}" required>
+                </p>
+                <button type="submit">Log in</button>
+
+                {% csrf_token %}
+            </form>
+
+        </div>
+        <div>
+            <p>Don't have an account? <a href="{% url 'signup user' %}">Register</a></p>
+        </div>
+    </div>
+{% endblock %}

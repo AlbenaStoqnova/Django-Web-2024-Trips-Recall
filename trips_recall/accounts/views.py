@@ -7,7 +7,6 @@ from trips_recall.accounts.forms import TripsRecallUserCreationForm
 from trips_recall.accounts.models import Profile
 
 
-
 class SignInUserView(auth_views.LoginView):
     template_name = 'accounts/signin_user.html'
     redirect_authenticated_user = True

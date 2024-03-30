@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block main_content %}
+
+    <div class="login-register-div">
+        <div class="login-register-box">
+            <h1>Trips Recall</h1>
+
+            <form action="{% url 'signup user' %}" method="post">
+                <p>
+                    {{ form.email }}
+                </p>
+                <p>
+                    {{ form.password1 }}
+                </p>
+
+                <p>
+                    {{ form.password2 }}
+                </p>
+
+                <button type="submit">Register</button>
+                {% csrf_token %}
+            </form>
+
+        </div>
+        <div class="second-option">
+            <p>Have an account? <a href="{% url 'signin user' %}">Log in</a></p>
+        </div>
+    </div>
+
+{% endblock %}
