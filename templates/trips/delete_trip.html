@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+    <div>
+        <h2>Delete trip</h2>
+        <form action="{% url 'delete trip' pk=trip.pk %}" method="post">
+            {{ form.as_p }}
+
+            <button type="submit">Delete</button>
+
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock %}

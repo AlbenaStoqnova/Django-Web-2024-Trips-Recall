@@ -12,7 +12,6 @@ def create_profile(request):
 
     context = {
         "form": form,
-        "no_nav": True,
     }
 
     return render(request, "web/home_page_with_user.html", context)
@@ -20,7 +19,14 @@ def create_profile(request):
 
 def index(request):
     context = {
-        'trips': Trip.objects.all(),
     }
     return render(request, 'web/index.html', context)
+
+
+def my_trips(request):
+    context = {
+        'trips': Trip.objects.all()
+    }
+
+    return render(request, 'web/home_page_with_user.html', context)
 

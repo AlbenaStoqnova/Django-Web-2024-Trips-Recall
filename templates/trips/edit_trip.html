@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main_content %}
+    <section>
+        <form action="{% url 'edit_trip' pk=trip.pk %}" method="post">
+            <fieldset>
+                <legend>Edit Trip</legend>
+                <div>
+                    {{ form }}
+                    <button type="submit">Edit Trip</button>
+                    {% csrf_token %}
+                </div>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}
